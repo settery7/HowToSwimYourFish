@@ -357,7 +357,6 @@ hframes = 8
 vframes = 7
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=430024970]
-debug_enabled = true
 debug_path_custom_color = Color(0.97993594, 0.24387774, 0.611006, 1)
 
 [node name="Timer" type="Timer" parent="." unique_id=1252124664]

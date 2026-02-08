@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cgkqfpr34b8rc"]
+
+[ext_resource type="Script" uid="uid://bk84es6ylqqjg" path="res://Entity/Spike/spike.gd" id="1_qjpvi"]
+[ext_resource type="Texture2D" uid="uid://cha8nxyb1s52i" path="res://Entity/Spike/spike.png" id="1_xrbl0"]
+[ext_resource type="AudioStream" uid="uid://y164yyl0elyy" path="res://Entity/Spike/dead.wav" id="3_ycscr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4ald"]
+size = Vector2(22, 32)
+
+[node name="Spike" type="Area2D" unique_id=562148718]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_qjpvi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1281400346]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_f4ald")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1243392437]
+texture_filter = 1
+texture = ExtResource("1_xrbl0")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1902491880]
+stream = ExtResource("3_ycscr")
+volume_db = -3.0
+pitch_scale = 0.7
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

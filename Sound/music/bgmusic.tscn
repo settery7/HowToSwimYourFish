@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c1r6htaf3jqc0"]
+
+[ext_resource type="AudioStream" uid="uid://dvgc5quejo4pc" path="res://Sound/music/moodmode-game-8-bit-on-short-278081.mp3" id="1_1jjo2"]
+
+[node name="Bgmusic" type="AudioStreamPlayer" unique_id=719205939]
+stream = ExtResource("1_1jjo2")
+volume_db = -8.0
+autoplay = true

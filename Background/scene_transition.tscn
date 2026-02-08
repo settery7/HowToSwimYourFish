@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://bceiglpi2v5cs"]
+
+[ext_resource type="Script" uid="uid://b0yvi8b86468u" path="res://Background/scene_transition.gd" id="1_53e7i"]
+[ext_resource type="Texture2D" uid="uid://beav5vyqqot7l" path="res://Background/stageclear!.png" id="2_dnonq"]
+
+[sub_resource type="Animation" id="Animation_3drvd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dissolve_rect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StageClearTexture:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_l5gxk"]
+resource_name = "In"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StageClearTexture:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4, 0.70000005, 0.8333333, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.1, 0.086), Vector2(0.1, 0.086), Vector2(0.5, 0.43), Vector2(3.5, 3.01), Vector2(4, 3.44), Vector2(3.44, 2.960001)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("dissolve_rect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StageClearTexture:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_n7fi8"]
+resource_name = "dissolve"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dissolve_rect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mrt3v"]
+_data = {
+&"RESET": SubResource("Animation_3drvd"),
+&"StageClear": SubResource("Animation_l5gxk"),
+&"dissolve": SubResource("Animation_n7fi8")
+}
+
+[node name="scene_transition" type="CanvasLayer" unique_id=207915901]
+script = ExtResource("1_53e7i")
+
+[node name="StageClearTexture" type="TextureRect" parent="." unique_id=2127436246]
+visible = false
+texture_filter = 1
+offset_left = 529.0
+offset_top = 247.0
+offset_right = 657.0
+offset_bottom = 375.0
+scale = Vector2(3.44, 2.960001)
+pivot_offset = Vector2(60, 60)
+texture = ExtResource("2_dnonq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1172760626]
+libraries/ = SubResource("AnimationLibrary_mrt3v")
+
+[node name="dissolve_rect" type="ColorRect" parent="." unique_id=808277975]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.4117647, 0.5372549, 0.5921569, 1)

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://on1o0xqnffyg"]
 
 [ext_resource type="Script" uid="uid://cmji2h82836xv" path="res://Entity/Current/Current.gd" id="1_63rk7"]
+[ext_resource type="Texture2D" uid="uid://dfc5aeb5ncx1j" path="res://Entity/Current/speaker-sprite-Sheet.png" id="2_iw27o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o8mll"]
 size = Vector2(145.33334, 74.66667)
@@ -14,6 +15,35 @@ initial_velocity_min = 2.0
 initial_velocity_max = 2.0
 gravity = Vector3(400, 0, 0)
 color = Color(0.84705883, 1, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ahit"]
+atlas = ExtResource("2_iw27o")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwsg6"]
+atlas = ExtResource("2_iw27o")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ei4l"]
+atlas = ExtResource("2_iw27o")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2kjyu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ahit")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwsg6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ei4l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Area2D" type="Area2D" unique_id=681622742]
 script = ExtResource("1_63rk7")
@@ -38,3 +68,12 @@ position = Vector2(-28, 0)
 scale = Vector2(13.999999, 28)
 amount = 512
 process_material = SubResource("ParticleProcessMaterial_o8mll")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=25737477]
+z_index = 1
+texture_filter = 1
+position = Vector2(0, 2)
+scale = Vector2(2.3593752, 1.8359375)
+sprite_frames = SubResource("SpriteFrames_2kjyu")
+autoplay = "default"
+frame_progress = 0.6610484

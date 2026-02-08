@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://brjr8v7s2yfla" path="res://Entity/Star/star.gd" id="1_kil57"]
 [ext_resource type="Texture2D" uid="uid://cnwiw5jqedwuu" path="res://Entity/Star/star.png" id="1_vpgfq"]
+[ext_resource type="AudioStream" uid="uid://dhsdkffxjifwb" path="res://Sound/sfx/smallbell.wav" id="3_y8vaa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kil57"]
 size = Vector2(40, 34)
@@ -16,5 +17,9 @@ texture = ExtResource("1_vpgfq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=628707228]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_kil57")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=894475912]
+stream = ExtResource("3_y8vaa")
+pitch_scale = 0.7
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

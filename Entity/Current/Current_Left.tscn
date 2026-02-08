@@ -1,11 +1,41 @@
 [gd_scene format=3 uid="uid://cjdp4seh2g811"]
 
 [ext_resource type="Script" uid="uid://cmji2h82836xv" path="res://Entity/Current/Current.gd" id="1_ilmvg"]
+[ext_resource type="Texture2D" uid="uid://dfc5aeb5ncx1j" path="res://Entity/Current/speaker-sprite-Sheet.png" id="2_t8c4v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o8mll"]
 size = Vector2(145.33334, 74.66667)
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_63rk7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ahit"]
+atlas = ExtResource("2_t8c4v")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwsg6"]
+atlas = ExtResource("2_t8c4v")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ei4l"]
+atlas = ExtResource("2_t8c4v")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mpv7u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ahit")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwsg6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ei4l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t8c4v"]
 particle_flag_disable_z = true
@@ -30,6 +60,15 @@ z_index = 1
 texture_filter = 1
 scale = Vector2(56, 112)
 texture = SubResource("AnimatedTexture_63rk7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1661531183]
+z_index = 1
+texture_filter = 1
+position = Vector2(9.500004, 1.9999998)
+scale = Vector2(2.3593752, 1.8359375)
+sprite_frames = SubResource("SpriteFrames_mpv7u")
+autoplay = "default"
+frame_progress = 0.34008333
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=255039187]
 z_index = -1

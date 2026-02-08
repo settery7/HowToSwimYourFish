@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-const SPEED := 100.0
-const EAT_DISTANCE := 40.0 # Increased slightly for buffer
+@export var SPEED := 100.0
+@export var EAT_DISTANCE := 40.0 # Increased slightly for buffer
 
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
@@ -111,3 +111,19 @@ func reach_feed() -> void:
 	if current_feed:
 		current_feed.queue_free()
 		current_feed = null
+		
+# Add this inside your Fish script
+func die() -> void:
+	if state == FishState.DEAD:
+		return
+		
+	state = FishState.DEAD
+	velocity = Vector2.ZERO # Stop moving
+	
+	# Play your death animation (ensure you have one in your AnimatedSprite2D)
+	if anim.sprite_frames.has_animation("death_right"):
+		anim.play("death_right" if facing == Facing.RIGHT else "death_left")
+	else:
+		# Fallback: just turn red and float up/down
+		var tween = create_tween()
+		tween.tween_property(self, "modulate", Color.RED, 0.5)

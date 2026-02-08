@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="HowToSwimYourFish"
-run/main_scene="res://Stage1.tscn"
+run/main_scene="uid://cn2plgqabefkl"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://ilj6osga47cg"
+
+[autoload]
+
+SceneTransistion="*uid://bceiglpi2v5cs"
+Bgmusic="*uid://c1r6htaf3jqc0"
 
 [global_group]
 

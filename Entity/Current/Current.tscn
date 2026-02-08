@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://on1o0xqnffyg"]
+
+[ext_resource type="Script" uid="uid://cmji2h82836xv" path="res://Entity/Current/Current.gd" id="1_63rk7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8mll"]
+size = Vector2(145.33334, 74.66667)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_63rk7"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_o8mll"]
+particle_flag_disable_z = true
+spread = 100.0
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+gravity = Vector3(400, 0, 0)
+color = Color(0.84705883, 1, 1, 1)
+
+[node name="Area2D" type="Area2D" unique_id=681622742]
+script = ExtResource("1_63rk7")
+current_strength = 500.0
+current_direction = Vector2(100, 0)
+affects_fish = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1217111933]
+position = Vector2(137, 1.9073486e-06)
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_o8mll")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=516224359]
+z_index = 1
+texture_filter = 1
+scale = Vector2(56, 112)
+texture = SubResource("AnimatedTexture_63rk7")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=255039187]
+z_index = -1
+position = Vector2(-28, 0)
+scale = Vector2(13.999999, 28)
+amount = 512
+process_material = SubResource("ParticleProcessMaterial_o8mll")

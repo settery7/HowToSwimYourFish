@@ -1,0 +1,16 @@
+[gd_resource type="TileSet" format=3 uid="uid://cffbonrdw68s2"]
+
+[ext_resource type="Texture2D" uid="uid://ceyj6444r1047" path="res://Background/water1.png" id="1_rlev3"]
+[ext_resource type="Texture2D" uid="uid://chac0rrm4qhm2" path="res://Background/water2.png" id="2_1qk6d"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ccsex"]
+texture = ExtResource("1_rlev3")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wuytu"]
+texture = ExtResource("2_1qk6d")
+0:0/0 = 0
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_ccsex")
+sources/1 = SubResource("TileSetAtlasSource_wuytu")

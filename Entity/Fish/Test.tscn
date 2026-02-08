@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cgk8enflfyja"]
+
+[ext_resource type="Script" uid="uid://ivvnx2l148w7" path="res://Entity/Fish/playermovement.gd" id="1_prt07"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_rhbve"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rwp5x"]
+size = Vector2(124, 118)
+
+[node name="Test" type="CharacterBody2D" unique_id=1230562167]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_prt07")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=361721109]
+shape = SubResource("RectangleShape2D_rwp5x")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1014256645]
+texture = ExtResource("2_rhbve")

@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://dce8ed4ldcktn"]
+
+[ext_resource type="Texture2D" uid="uid://bu8f427kd50g8" path="res://Entity/Feed/feed.png" id="1_1geth"]
+[ext_resource type="Script" uid="uid://dug0ku3qwq8j6" path="res://Entity/Feed/feed.gd" id="1_hmb6x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1geth"]
+atlas = ExtResource("1_1geth")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hmb6x"]
+atlas = ExtResource("1_1geth")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wthqk"]
+atlas = ExtResource("1_1geth")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfino"]
+atlas = ExtResource("1_1geth")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_deygs"]
+atlas = ExtResource("1_1geth")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjl4q"]
+atlas = ExtResource("1_1geth")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gn76p"]
+atlas = ExtResource("1_1geth")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sfs66"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1geth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hmb6x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wthqk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfino")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_deygs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hjl4q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gn76p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_h1u8m"]
+resource_name = "falling"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_obhx8"]
+_data = {
+&"falling": SubResource("Animation_h1u8m")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hmb6x"]
+size = Vector2(10, 3)
+
+[node name="Feed" type="Node2D" unique_id=784094412]
+z_index = 1
+script = ExtResource("1_hmb6x")
+fall_speed = 50.0
+despawn_y = 290.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2136823171]
+texture_filter = 3
+sprite_frames = SubResource("SpriteFrames_sfs66")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=864017195]
+libraries/ = SubResource("AnimationLibrary_obhx8")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1463454649]
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1078744530]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_hmb6x")
